@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficTramSupervisionSystem.Feed", "TrafficTramSupervisionSystem.Feed\TrafficTramSupervisionSystem.Feed.csproj", "{D0A15B6F-3B5A-455C-9C6C-3AB400E385E7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TtssClient", "TtssClient\TtssClient.csproj", "{D0A15B6F-3B5A-455C-9C6C-3AB400E385E7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficTramSupervisionSystem.Console", "TrafficTramSupervisionSystem.Console\TrafficTramSupervisionSystem.Console.csproj", "{75249563-97C0-4E6D-B3F2-E438B720A019}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R4Uri", "R4Uri\R4Uri.csproj", "{0024A721-595C-4B10-AABF-92120251B3A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,9 +18,5 @@ Global
 		{75249563-97C0-4E6D-B3F2-E438B720A019}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75249563-97C0-4E6D-B3F2-E438B720A019}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75249563-97C0-4E6D-B3F2-E438B720A019}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0024A721-595C-4B10-AABF-92120251B3A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0024A721-595C-4B10-AABF-92120251B3A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0024A721-595C-4B10-AABF-92120251B3A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0024A721-595C-4B10-AABF-92120251B3A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

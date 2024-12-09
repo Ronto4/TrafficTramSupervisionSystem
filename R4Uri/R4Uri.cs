@@ -16,22 +16,22 @@ public class R4Uri
         CurrentUri = uri;
     }
 
-    protected R4Uri(Uri uri)
+    protected R4Uri(System.Uri uri)
     {
         CurrentUri = uri.ToString();
     }
 
     public static R4UriPath Create() => new();
     public static R4UriPath Create(string uri) => new(uri);
-    public static R4UriPath Create(Uri uri) => new(uri);
+    public static R4UriPath Create(System.Uri uri) => new(uri);
 
-    public override string ToString() => ((Uri)this).ToString();
+    public override string ToString() => ((System.Uri)this).ToString();
 
     // public static implicit operator string(R4Uri uri) => HttpUtility.UrlEncode(uri.CurrentUri);
-    public static implicit operator Uri(R4Uri uri) => new(uri.CurrentUri);
+    public static implicit operator System.Uri(R4Uri uri) => new(uri.CurrentUri);
 
     public static implicit operator R4Uri(string uri) => new(uri);
-    public static implicit operator R4Uri(Uri uri) => new(uri);
+    public static implicit operator R4Uri(System.Uri uri) => new(uri);
 }
 
 public class R4UriPath : R4Uri
@@ -40,16 +40,16 @@ public class R4UriPath : R4Uri
     {
     }
 
-    internal R4UriPath(string uri) : this(new Uri(uri))
+    internal R4UriPath(string uri) : this(new System.Uri(uri))
     {
     }
 
-    internal R4UriPath(Uri uri) : base(uri)
+    internal R4UriPath(System.Uri uri) : base(uri)
     {
         if (!string.IsNullOrWhiteSpace(uri.Query)) throw new ArgumentException("Uri cannot contain query strings.");
     }
 
-    public static R4UriPath operator /(R4UriPath uri, Uri relativeUri) => uri / relativeUri.ToString();
+    public static R4UriPath operator /(R4UriPath uri, System.Uri relativeUri) => uri / relativeUri.ToString();
 
     public static R4UriPath operator /(R4UriPath uri, string relativeUri)
     {
@@ -76,7 +76,7 @@ public class QueryParameter
         Skip = value is null;
     }
 
-    public override string ToString() => $"{_name}={Uri.EscapeDataString(_value)}";
+    public override string ToString() => $"{_name}={System.Uri.EscapeDataString(_value)}";
 
     public static QueryParameter FromExpression(Expression<Func<object?, object?>> lambda) => new(
         lambda.Parameters[0].Name ?? throw new NullReferenceException("Lambda's first parameter has no name."),

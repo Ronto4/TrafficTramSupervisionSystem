@@ -4,12 +4,15 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <Title>A simple library for URI handling</Title>
+        <Title>A client for the TTSS</Title>
         <Authors>Ronto4</Authors>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageProjectUrl>https://github.com/Ronto4/TrafficTramSupervisionSystem/tree/master/R4Uri</PackageProjectUrl>
         <RepositoryUrl>https://github.com/Ronto4/TrafficTramSupervisionSystem</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
     </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="R4Utils" Version="1.0.0" />
+    </ItemGroup>
 
 </Project>

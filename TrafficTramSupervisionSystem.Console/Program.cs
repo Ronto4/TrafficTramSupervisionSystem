@@ -1,12 +1,11 @@
 ﻿
-using TrafficTramSupervisionSystem.Feed;
-using TrafficTramSupervisionSystem.Feed.Dtos.Requests;
-using TrafficTramSupervisionSystem.Feed.Models;
+using TtssClient;
+using TtssClient.Dtos.Requests;
+using TtssClient.Models;
 
 var api = new TtssApi
 {
     Language = "de", BaseUri = new Uri("https://www.swp-potsdam.de/"),
-    TimeZone = TimeZoneInfo.FindSystemTimeZoneById("Europe/Berlin")
 };
 Console.WriteLine(api);
 var stops = await api.GetStopsAsync(new StopsRequest());
@@ -44,6 +43,18 @@ var routeStops = await api.GetRouteStopsAsync(new RouteStopsRequest
 {
     RouteId = "2871081879556063923",
 });
+var routePaths = await api.GetRoutePathsAsync(new RoutePathsRequest
+{
+    RouteId = "2871081879556063923",
+});
+var vehiclePaths = await api.GetVehiclePathsAsync(new VehiclePathsRequest
+{
+    VehicleId = "-6377097066944518015",
+});
+var vehicles = await api.GetVehiclesAsync(new VehicleRequest());
+Console.WriteLine(vehicles.Vehicles.Count);
+Console.WriteLine(vehiclePaths.Paths.Count);
+Console.WriteLine(routePaths.Paths.Count);
 Console.WriteLine(routeStops.Stops.Count);
 Console.WriteLine(routes);
 Console.WriteLine(tripPassages);
