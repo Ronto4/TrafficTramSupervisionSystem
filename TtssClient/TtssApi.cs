@@ -7,18 +7,10 @@ using TtssClient.Dtos.Responses;
 
 namespace TtssClient;
 
-public record TtssApi
+public record TtssApi : ITtssApi
 {
-    /// <summary>
-    /// The base URL of the TTSS service. Must not contain `internetservice` and a trailing slash.
-    ///
-    /// Example: <c>http://www.ttss.krakow.pl</c> for trams in Kraków.
-    /// </summary>
     public required Uri BaseUri { get; init; }
-
-    /// <summary>
-    /// The language of the retrieved information. Must be the two-letter (ISO 639-1) code of the language.
-    /// </summary>
+    
     public required string Language { get; init; }
 
     private static async Task<string> GetStringAsync(Uri uri, CancellationToken cancellationToken)
