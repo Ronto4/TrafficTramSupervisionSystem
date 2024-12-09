@@ -16,7 +16,6 @@ public record TtssApi : ITtssApi
     private static async Task<string> GetStringAsync(Uri uri, CancellationToken cancellationToken)
     {
         HttpClient client = new();
-        Console.WriteLine(uri);
         var content = await client.GetAsync(uri, cancellationToken);
         if (content.StatusCode is not HttpStatusCode.OK)
             throw new HttpRequestException($"Unable to get from {uri}: {content.StatusCode}");
