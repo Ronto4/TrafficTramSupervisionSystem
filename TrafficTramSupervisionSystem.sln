@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TtssClient", "TtssClient\Tt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficTramSupervisionSystem.Console", "TrafficTramSupervisionSystem.Console\TrafficTramSupervisionSystem.Console.csproj", "{75249563-97C0-4E6D-B3F2-E438B720A019}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TtssProxy", "TtssProxy\TtssProxy.csproj", "{06955A41-C5A5-4477-BC28-951D0E84545C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{75249563-97C0-4E6D-B3F2-E438B720A019}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75249563-97C0-4E6D-B3F2-E438B720A019}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75249563-97C0-4E6D-B3F2-E438B720A019}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06955A41-C5A5-4477-BC28-951D0E84545C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06955A41-C5A5-4477-BC28-951D0E84545C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06955A41-C5A5-4477-BC28-951D0E84545C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06955A41-C5A5-4477-BC28-951D0E84545C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

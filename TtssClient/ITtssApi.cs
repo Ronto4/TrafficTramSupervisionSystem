@@ -16,6 +16,12 @@ public interface ITtssApi
     /// The language of the retrieved information. Must be the two-letter (ISO 639-1) code of the language.
     /// </summary>
     string Language { get; init; }
+    
+    /// <summary>
+    /// If specified, passes all requests through the `TtssProxy` residing at the provided position, including the prefix.
+    /// </summary>
+    /// <example><c>https://site.net/api</c></example>
+    Uri? ProxyUri { get; init; }
 
     Task<StopsResponse>
         GetStopsAsync(StopsRequest request, CancellationToken cancellationToken = default);

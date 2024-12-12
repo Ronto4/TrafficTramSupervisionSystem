@@ -12,18 +12,30 @@ public record TtssApi : ITtssApi
     public required Uri BaseUri { get; init; }
     
     public required string Language { get; init; }
+    
+    public Uri? ProxyUri { get; init; }
 
-    private static async Task<string> GetStringAsync(Uri uri, CancellationToken cancellationToken)
+    private async Task<string> GetStringAsync(Uri uri, CancellationToken cancellationToken)
     {
-        HttpClient client = new();
-        var content = await client.GetAsync(uri, cancellationToken);
+        using HttpClient client = new();
+        HttpResponseMessage content;
+        if (ProxyUri is not null)
+        {
+            var proxyUri = R4Uri.Create(ProxyUri) / "ttss-proxy" / "get-string" & (uriToGet => uri);
+            content = await client.GetAsync(proxyUri, cancellationToken);
+        }
+        else
+        {
+            content = await client.GetAsync(uri, cancellationToken);
+        }
+
         if (content.StatusCode is not HttpStatusCode.OK)
             throw new HttpRequestException($"Unable to get from {uri}: {content.StatusCode}");
         var text = await content.Content.ReadAsStringAsync(cancellationToken);
         return text;
     }
 
-    private static async Task<T> GetAsync<T>(Uri uri, JsonTypeInfo<T> jsonTypeInfo, CancellationToken cancellationToken)
+    private async Task<T> GetAsync<T>(Uri uri, JsonTypeInfo<T> jsonTypeInfo, CancellationToken cancellationToken)
     {
         var text = await GetStringAsync(uri, cancellationToken);
         var response = JsonSerializer.Deserialize(text, jsonTypeInfo);
