@@ -44,6 +44,9 @@ public interface ITtssApi
     Task<TripPassagesResponse> GetTripPassagesAsync(TripPassagesRequest request,
         CancellationToken cancellationToken = default);
 
+    Task<PathsResponse> GetTripPathsAsync(TripPathsRequest request,
+        CancellationToken cancellationToken = default);
+
     Task<RoutesResponse> GetRoutesAsync(RoutesRequest request,
         CancellationToken cancellationToken = default);
 

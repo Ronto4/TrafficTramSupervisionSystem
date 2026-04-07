@@ -77,6 +77,10 @@ public record TtssApi : ITtssApi
         CancellationToken cancellationToken = default) =>
         await RequestAsync<TripPassagesRequest, TripPassagesResponse>(request, cancellationToken);
 
+    public async Task<PathsResponse> GetTripPathsAsync(TripPathsRequest request,
+        CancellationToken cancellationToken = default) =>
+        await RequestAsync<TripPathsRequest, PathsResponse>(request, cancellationToken);
+
     public async Task<RoutesResponse> GetRoutesAsync(RoutesRequest request,
         CancellationToken cancellationToken = default) =>
         await RequestAsync<RoutesRequest, RoutesResponse>(request, cancellationToken);
