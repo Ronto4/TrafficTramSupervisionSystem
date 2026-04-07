@@ -5,7 +5,7 @@ public class TripPathsRequest : IRequest
 {
     public required string TripId { get; init; }
 
-    public R4UriQuery AppendToUri(R4UriPath uri) => uri & (tripId => TripId) & (cacheBuster => DateTime.UtcNow.Ticks);
+    public R4UriQuery AppendToUri(R4UriPath uri) => uri & (id => TripId) & (cacheBuster => DateTime.UtcNow.Ticks);
 
     public R4UriPath GetRequestPath(R4UriPath baseUri) =>
         baseUri / "internetservice" / "geoserviceDispatcher" / "services" / "pathinfo" / "trip";
